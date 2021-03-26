@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Third-party
+    'crispy_forms',
+
+    # Local
     'accounts',
     'pages',
 ]
@@ -125,8 +129,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# url to referencje static files 
 STATIC_URL = '/static/'
+# location of static files in local development
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
+# location of static files in production
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
 # redirect after login
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
